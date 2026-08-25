@@ -40,7 +40,7 @@
             margin: 0 auto;
         }
 
-        /* ESTILOS DO HEADER NAVARRO */
+        /* ESTILOS DO HEADER */
         header {
             text-align: center;
             padding: 40px 20px;
@@ -55,24 +55,61 @@
             gap: 15px;
         }
 
-        .brasao-container {
+        /* ESTILOS DO CONTEÚDO DO BRASÃO (COM ABAS) */
+        .brasao-view-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brasao-content {
+            display: none;
             width: 130px;
             height: 150px;
-            background: #fff;
+            background: radial-gradient(circle, #2b2b2b 0%, #111 100%);
             border: 3px solid var(--accent);
             border-radius: 8px;
             padding: 5px;
-            display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-            background: radial-gradient(circle, #2b2b2b 0%, #111 100%);
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .brasao-container img {
+        .brasao-content.active {
+            display: flex;
+        }
+
+        .brasao-content svg {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+        }
+
+        /* Pequenas abas internas para alternar a visão do brasão */
+        .brasao-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .brasao-tab-btn {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .brasao-tab-btn:hover, .brasao-tab-btn.active {
+            background-color: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+            font-weight: 600;
         }
 
         header h1 {
@@ -144,8 +181,13 @@
         .jesus-header h1 {
             color: var(--jesus-accent) !important;
         }
-        .jesus-container {
+        .jesus-brasao-content {
             border: 3px solid var(--jesus-accent) !important;
+        }
+        .jesus-brasao-tabs .brasao-tab-btn:hover, .jesus-brasao-tabs .brasao-tab-btn.active {
+            background-color: var(--jesus-accent) !important;
+            color: #000 !important;
+            border-color: var(--jesus-accent) !important;
         }
         .jesus-tabs .tab-btn:hover, .jesus-tabs .tab-btn.active {
             background-color: var(--jesus-primary) !important;
@@ -239,13 +281,26 @@
 
         <!-- ==================== DOSSIÊ 1: NAVARRO ==================== -->
         <header>
-            <div class="brasao-container">
-                <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#990000" stroke="#d4af37" stroke-width="6"/>
-                    <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="8" opacity="0.8"/>
-                    <path d="M80 15 L90 5 L100 12 L110 5 L120 15 Z" fill="#d4af37"/>
-                </svg>
+            <!-- Container com Abas para o Brasão Navarro -->
+            <div class="brasao-view-container">
+                <div id="brasao-navarro-svg" class="brasao-content active">
+                    <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#990000" stroke="#d4af37" stroke-width="6"/>
+                        <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="8" opacity="0.8"/>
+                        <path d="M80 15 L90 5 L100 12 L110 5 L120 15 Z" fill="#d4af37"/>
+                    </svg>
+                </div>
+                <div id="brasao-navarro-detalhes" class="brasao-content" style="flex-direction: column; text-align: center; font-size: 0.755rem; padding: 10px; color: var(--text-muted);">
+                    <strong style="color: var(--accent);">Escudo Pleno</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.7rem;">Gules com reticulado de Ouro e coroa superior.</p>
+                </div>
+                
+                <div class="brasao-tabs">
+                    <button class="brasao-tab-btn active" onclick="mudarBrasao(event, 'brasao-navarro-svg', 'navarro-brasao-grupo')">Brasão</button>
+                    <button class="brasao-tab-btn" onclick="mudarBrasao(event, 'brasao-navarro-detalhes', 'navarro-brasao-grupo')">Detalhes</button>
+                </div>
             </div>
+
             <div>
                 <h1>O Sobrenome Navarro</h1>
                 <p>Dossiê Genealógico, Histórico, Etimológico e Heráldico Completo</p>
@@ -333,13 +388,25 @@
 
         <!-- ==================== DOSSIÊ 2: JESUS ==================== -->
         <header class="jesus-header">
-            <div class="brasao-container jesus-container">
-                <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="6"/>
-                    <!-- Cruz simbólica interna em tom azul claro/prateado -->
-                    <path d="M90 40 V200 M60 90 H140" stroke="#60a5fa" stroke-width="8" opacity="0.9"/>
-                </svg>
+            <!-- Container com Abas para o Brasão Jesus -->
+            <div class="brasao-view-container">
+                <div id="brasao-jesus-svg" class="brasao-content jesus-brasao-content active">
+                    <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="6"/>
+                        <path d="M90 40 V200 M60 90 H140" stroke="#60a5fa" stroke-width="8" opacity="0.9"/>
+                    </svg>
+                </div>
+                <div id="brasao-jesus-detalhes" class="brasao-content jesus-brasao-content" style="flex-direction: column; text-align: center; font-size: 0.755rem; padding: 10px; color: var(--text-muted);">
+                    <strong style="color: var(--jesus-accent);">Selo Teofórico</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.7rem;">Azul profundo cruzado por emblema sacral em prata/luz.</p>
+                </div>
+
+                <div class="brasao-tabs jesus-brasao-tabs">
+                    <button class="brasao-tab-btn active" onclick="mudarBrasao(event, 'brasao-jesus-svg', 'jesus-brasao-grupo')">Símbolo</button>
+                    <button class="brasao-tab-btn" onclick="mudarBrasao(event, 'brasao-jesus-detalhes', 'jesus-brasao-grupo')">Detalhes</button>
+                </div>
             </div>
+
             <div>
                 <h1>O Sobrenome Jesus</h1>
                 <p>Dossiê Histórico, Religioso, Demográfico e Genealógico Completo</p>
@@ -409,18 +476,31 @@
     </div>
 
     <script>
+        // Função para alternar as abas dos conteúdos principais
         function mudarAba(event, idAba, grupoClasse) {
-            // Oculta apenas as seções do grupo correspondente (navarro-tab ou jesus-tab)
             const secoes = document.querySelectorAll('.' + grupoClasse);
             secoes.forEach(sec => sec.classList.remove('active'));
 
-            // Remove a classe active dos botões do mesmo grupo pai
             const containerAbas = event.currentTarget.closest('.nav-tabs');
             const botoes = containerAbas.querySelectorAll('.tab-btn');
             botoes.forEach(btn => btn.classList.remove('active'));
 
-            // Ativa a seção e o botão clicado
             document.getElementById(idAba).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // Função específica para alternar os visores do brasão
+        function mudarBrasao(event, idConteudoBrasao, grupoBrasaoClasse) {
+            // Como os containers de brasão estão dentro do header, buscamos no elemento pai comum mais próximo
+            const containerPai = event.currentTarget.closest('.brasao-view-container');
+            
+            const conteudos = containerPai.querySelectorAll('.brasao-content');
+            conteudos.forEach(c => c.classList.remove('active'));
+
+            const botoes = containerPai.querySelectorAll('.brasao-tab-btn');
+            botoes.forEach(b => b.classList.remove('active'));
+
+            document.getElementById(idConteudoBrasao).classList.add('active');
             event.currentTarget.classList.add('active');
         }
     </script>
