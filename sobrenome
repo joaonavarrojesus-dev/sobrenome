@@ -1,41 +1,115 @@
-class FamiliaNavarro:
+import os
+import time
+
+class SistemaNavarro:
     def __init__(self):
         self.sobrenome = "Navarro"
-        self.origem = "Espanha / Região de Navarra (Pirenéus)"
-        self.significado = "Relativo ou pertencente à antiga região de Navarra."
-        self.etimologia_basca = "Derivado de 'naba' (vale entre montanhas ou planície cercada de elevações)."
         
-    def exibir_historico(self):
-        print("=" * 60)
-        print(f"🏰 DOSSIÉ COMPLETO: FAMÍLIA {self.sobrenome.upper()} 🏰")
-        print("=" * 60)
-        print(f"🌍 Origem Geográfica : {self.origem}")
-        print(f"📚 Significado      : {self.significado}")
-        print(f"🗣️ Raiz Etimológica : {self.etimologia_basca}")
-        print("-" * 60)
+    def limpar_tela(self):
+        # Limpa o terminal para uma melhor experiência visual
+        os.system('cls' if os.name == 'nt' else 'clear')
 
-    def curiosidades(self):
-        fatos = [
-            "É um sobrenome de <b>toponímia</b>, ou seja, era dado às pessoas que saíam da região de Navarra para outras terras.",
-            "Espalhou-se amplamente pela Península Ibérica durante a Reconquista e, posteriormente, para a América Latina e Brasil.",
-            "Historicamente, portadores do nome participaram ativamente da nobreza medieval espanhola e de expedições marítimas."
-        ]
-        print("🔍 CURIOSIDADES HISTÓRICAS:")
-        for i, fato in enumerate(fatos, 1):
-            print(f"  {i}. {fato}")
-        print("-" * 60)
+    def exibir_cabecalho(self):
+        print("=" * 65)
+        print(f"🏰 ENCICLOPÉDIA INTERATIVA: FAMÍLIA {self.sobrenome.upper()} 🏰")
+        print("=" * 65)
 
-    def simular_brasao(self):
-        print("🛡️ SIMULADOR DE BRASÃO TRADICIONAL:")
-        print("  • Cores predominantes: Ouro e Vermelho (representam nobreza, coragem e valentia).")
-        print("  • Símbolos comuns: Águias, castelos ou faixas heráldicas.")
-        print("  • Lema sugerido: 'Honra, Tradição e Bravura'.")
-        print("=" * 60)
+    def menu_principal(self):
+        while True:
+            self.limpar_tela()
+            self.exibir_cabecalho()
+            print("\nEscolha uma categoria para explorar sobre o seu sobrenome:")
+            print(" [1] 📜 História e Origem Geográfica")
+            print(" [2] 📖 Gênero, Gramática e Variações")
+            print(" [3] ⛰️ Significado e Etimologia (Basca)")
+            print(" [4] 🛡️ Heráldica e Brasão Tradicional")
+            print(" [5] 🌍 Expansão (Espanha, América e Brasil)")
+            print(" [0] ❌ Sair do Programa")
+            print("-" * 65)
+            
+            opcao = input("Digite o número da opção desejada: ").strip()
+            
+            if opcao == '1':
+                self.mostrar_historia()
+            elif opcao == '2':
+                self.mostrar_genero()
+            elif opcao == '3':
+                self.mostrar_etimologia()
+            elif opcao == '4':
+                self.mostrar_heraldica()
+            elif opcao == '5':
+                self.mostrar_expansao()
+            elif opcao == '0':
+                print("\n✨ Orgulhe-se do seu legado! Até logo! ✨\n")
+                break
+            else:
+                print("\n⚠️ Opção inválida! Tente novamente.")
+                time.sleep(1.5)
 
-# Executando o sistema interativo da família Navarro
+    def mostrar_historia(self):
+        self.limpar_tela()
+        print("📜 [1] HISTÓRIA E ORIGEM GEOGRÁFICA\n")
+        print("• O sobrenome Navarro tem suas raízes profundas na antiga Região")
+        print("  e Reino de Navarra, situado ao norte da Espanha, na cordilheira")
+        print("  dos Pirenéus, fazendo divisa com a França.")
+        print("• Trata-se de um sobrenome toponímico: na Idade Média, era dado")
+        print("  como identificação às pessoas que saíam da região de Navarra para")
+        print("  habitar ou comerciar em outras províncias espanholas (significando")
+        print("  'aquele que veio de Navarra').")
+        self.pausar()
+
+    def mostrar_genero(self):
+        self.limpar_tela()
+        print("📖 [2] GÊNERO, GRAMÁTICA E VARIAÇÕES\n")
+        print("• Substantivo e Adjetivo: Funciona como substantivo próprio (sobrenome)")
+        print("  e também como adjetivo pátrio (referente a quem nasce em Navarra).")
+        print("• Gênero Gramatical:")
+        print("  - Masculino Singular / Geral: O sobrenome principal é 'Navarro'.")
+        print("  - Plural: 'Os Navarros' (usado para se referir à família/clã).")
+        print("  - Feminino: 'Navarra' (utilizado tanto para a província europeia")
+        print("    quanto para o particípio feminino de gentílico).")
+        self.pausar()
+
+    def mostrar_etimologia(self):
+        self.limpar_tela()
+        print("⛰️ [3] SIGNIFICADO E ETIMOLOGIA (BASCA)\n")
+        print("• Raiz Lingüística: A palavra tem forte influência do idioma basco")
+        print("  (Euskara), que é anterior à chegada do latim na região.")
+        print("• Significado Base: Deriva da palavra basca 'Naba', que designava")
+        print("  uma planície fértil cercada por vales ou montanhas, ou um vale")
+        print("  plano entre elevações geográficas.")
+        self.pausar()
+
+    def mostrar_heraldica(self):
+        self.limpar_tela()
+        print("🛡️ [4] HERÁLDICA E BRASÃO TRADICIONAL\n")
+        print("• Cores Principais do Escudo:")
+        print("  - Ouro (Amarelo): Representa nobreza, magnanimidade, poder e pureza.")
+        print("  - Vermelho (Gules): Simboliza valor, coragem, honra e audácia em batalha.")
+        print("• Elementos Clássicos:")
+        print("  - Os brasões históricos registrados na Espanha costumam ostentar")
+        print("    faixas heráldicas, castelos medievais ou águias imperiais,")
+        print("    remetendo à defesa do antigo reino.")
+        self.pausar()
+
+    def mostrar_expansao(self):
+        self.limpar_tela()
+        print("🌍 [5] EXPANSÃO MUNDIAL E NO BRASIL\n")
+        print("• Expansão Ibérica: Com a Reconquista Cristã e a unificação da")
+        print("  Espanha, famílias Navarro se espalharam por Aragão, Valência e Andaluzia.")
+        print("• Chegada à América Latina: O sobrenome cruzou o Atlântico durante")
+        print("  o período colonial espanhol, fixando-se fortemente no México,")
+        print("  Colômbia, Argentina e Peru.")
+        print("• Presença no Brasil: No Brasil, o sobrenome chegou tanto através")
+        print("  de imigrantes espanhóis e portugueses quanto por ramificações")
+        print("  históricas vindas de famílias ibéricas desde o período colonial.")
+        self.pausar()
+
+    def pausar(self):
+        print("\n" + "-" * 65)
+        input("Pressione [ENTER] para voltar ao menu principal...")
+
+# Execução do script no VS Code
 if __name__ == "__main__":
-    navarro = FamiliaNavarro()
-    navarro.exibir_historico()
-    navarro.curiosidades()
-    navarro.simular_brasao()
-    print("✨ 'Carregar o nome Navarro é carregar séculos de história nas veias!' ✨")
+    app = SistemaNavarro()
+    app.menu_principal()
