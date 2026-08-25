@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dossiê Histórico e Cultural - Sobrenome Navarro</title>
+    <title>Dossiê Histórico e Cultural - Sobrenomes Navarro e Jesus</title>
     <style>
         :root {
             --primary: #990000;
@@ -14,6 +14,11 @@
             --text-main: #f1f1f1;
             --text-muted: #aaaaaa;
             --border: #2c313c;
+
+            /* Cores secundárias para o bloco de Jesus */
+            --jesus-primary: #1e3a8a;
+            --jesus-dark: #11224d;
+            --jesus-accent: #60a5fa;
         }
 
         * {
@@ -35,6 +40,7 @@
             margin: 0 auto;
         }
 
+        /* ESTILOS DO HEADER NAVARRO */
         header {
             text-align: center;
             padding: 40px 20px;
@@ -115,6 +121,7 @@
             padding: 40px;
             box-shadow: 0 8px 24px rgba(0,0,0,0.4);
             animation: fadeIn 0.4s ease-in-out;
+            margin-bottom: 50px;
         }
 
         .section-content.active {
@@ -127,6 +134,34 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--border);
+        }
+
+        /* ESTILOS ESPECÍFICOS PARA O DOSSIÊ JESUS */
+        .jesus-header {
+            background: linear-gradient(135deg, var(--bg-card), var(--jesus-dark)) !important;
+            border: 2px solid var(--jesus-accent) !important;
+        }
+        .jesus-header h1 {
+            color: var(--jesus-accent) !important;
+        }
+        .jesus-container {
+            border: 3px solid var(--jesus-accent) !important;
+        }
+        .jesus-tabs .tab-btn:hover, .jesus-tabs .tab-btn.active {
+            background-color: var(--jesus-primary) !important;
+            border-color: var(--jesus-accent) !important;
+        }
+        .jesus-section h2 {
+            color: var(--jesus-accent) !important;
+        }
+        .jesus-section .info-box {
+            border-left-color: var(--jesus-accent) !important;
+        }
+        .jesus-section .info-box h4 {
+            color: var(--jesus-accent) !important;
+        }
+        .jesus-section li::before {
+            color: var(--jesus-accent) !important;
         }
 
         h3 {
@@ -178,6 +213,11 @@
             font-size: 1.2rem;
         }
 
+        .divider-div {
+            border-top: 2px dashed var(--border);
+            margin: 60px 0;
+        }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -196,15 +236,13 @@
 <body>
 
     <div class="wrapper">
+
+        <!-- ==================== DOSSIÊ 1: NAVARRO ==================== -->
         <header>
-            <!-- Brasão Oficial Tradicional da Família Navarro (Representação Heráldica Padrão) -->
             <div class="brasao-container">
                 <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Fundo do Escudo -->
                     <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#990000" stroke="#d4af37" stroke-width="6"/>
-                    <!-- Detalhe Heráldico Interno (Cruz ou Faixa em Ouro) -->
                     <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="8" opacity="0.8"/>
-                    <!-- Coroa Superior Simulada -->
                     <path d="M80 15 L90 5 L100 12 L110 5 L120 15 Z" fill="#d4af37"/>
                 </svg>
             </div>
@@ -214,20 +252,17 @@
             </div>
         </header>
 
-        <!-- Menu de Abas -->
         <div class="nav-tabs">
-            <button class="tab-btn active" onclick="mudarAba('origem')">📍 Origem e Etimologia</button>
-            <button class="tab-btn" onclick="mudarAba('historia')">📜 História e Expansão</button>
-            <button class="tab-btn" onclick="mudarAba('gramatica')">📖 Gramática e Gênero</button>
-            <button class="tab-btn" onclick="mudarAba('heraldica')">🛡️ Heráldica e Brasão</button>
-            <button class="tab-btn" onclick="mudarAba('demografia')">🌍 Dispersão Global</button>
+            <button class="tab-btn active" onclick="mudarAba(event, 'origem', 'navarro-tab')">📍 Origem e Etimologia</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'historia', 'navarro-tab')">📜 História e Expansão</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'gramatica', 'navarro-tab')">📖 Gramática e Gênero</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'heraldica', 'navarro-tab')">🛡️ Heráldica e Brasão</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'demografia', 'navarro-tab')">🌍 Dispersão Global</button>
         </div>
 
-        <!-- ABA 1: ORIGEM E ETIMOLOGIA -->
-        <div id="origem" class="section-content active">
-            <h2>Origem Geográfica e Raízes Etimológicas</h2>
+        <div id="origem" class="section-content navarro-tab active">
+            <h2>Origem Geográfica e Raízes Etimológicas (Navarro)</h2>
             <p>O sobrenome <strong>Navarro</strong> é classificado tecnicamente como um <strong>sobrenome toponímico</strong>. Isso significa que ele não surgiu de uma profissão ou de um ancestral comum direto, mas sim de uma indicação geográfica: era o nome atribuído aos indivíduos que saíam de sua terra natal para se estabelecer em outras regiões da Península Ibérica.</p>
-            
             <div class="info-grid">
                 <div class="info-box">
                     <h4>O Reino de Navarra</h4>
@@ -240,11 +275,9 @@
             </div>
         </div>
 
-        <!-- ABA 2: HISTÓRIA E EXPANSÃO -->
-        <div id="historia" class="section-content">
-            <h2>Contexto Histórico e Expansão Geográfica</h2>
+        <div id="historia" class="section-content navarro-tab">
+            <h2>Contexto Histórico e Expansão Geográfica (Navarro)</h2>
             <p>Durante a Idade Média e o processo de Reconquista Cristã na Península Ibérica, cavaleiros, nobres e plebeus originários de Navarra migraram para apoiar a Coroa em territórios reconquistados como Aragão, Valência e Andaluzia.</p>
-            
             <h3>Marcos da Expansão:</h3>
             <ul>
                 <li><strong>Período Medieval:</strong> Funcionava como um indicativo claro de procedência ("Fulano, o Navarro"). Com o tempo, fixou-se de vez como sobrenome hereditário.</li>
@@ -253,11 +286,9 @@
             </ul>
         </div>
 
-        <!-- ABA 3: GRAMÁTICA E GÊNERO -->
-        <div id="gramatica" class="section-content">
-            <h2>Aspectos Gramaticais, Gênero e Variações</h2>
+        <div id="gramatica" class="section-content navarro-tab">
+            <h2>Aspectos Gramaticais, Gênero e Variações (Navarro)</h2>
             <p>Na língua portuguesa e espanhola, o sobrenome possui características morfológicas singulares por acumular também a função de adjetivo pátrio (gentílico).</p>
-
             <div class="info-grid">
                 <div class="info-box">
                     <h4>Uso como Sobrenome (Família)</h4>
@@ -274,11 +305,9 @@
             </div>
         </div>
 
-        <!-- ABA 4: HERÁLDICA -->
-        <div id="heraldica" class="section-content">
-            <h2>Heráldica e Simbologia do Brasão</h2>
+        <div id="heraldica" class="section-content navarro-tab">
+            <h2>Heráldica e Simbologia do Brasão (Navarro)</h2>
             <p>Na ciência heráldica tradicional ibérica, as famílias nobres ou fidalgas ligadas ao tronco de Navarra registravam escudos carregados de simbolismos profundos sobre coragem e lealdade.</p>
-            
             <h3>Atributos Clássicos do Escudo:</h3>
             <ul>
                 <li><strong>Metal Ouro (Amarelo):</strong> Representa a nobreza, a magnanimidade, o esplendor, a sabedoria e a constância.</li>
@@ -287,14 +316,90 @@
             </ul>
         </div>
 
-        <!-- ABA 5: DISPERSÃO GLOBAL -->
-        <div id="demografia" class="section-content">
-            <h2>Dispersão e Relevância Global</h2>
+        <div id="demografia" class="section-content navarro-tab">
+            <h2>Dispersão e Relevância Global (Navarro)</h2>
             <p>Hoje, o sobrenome Navarro é amplamente difundido em nível global, ocupando posições de destaque demográfico e cultural tanto no mundo hispânico quanto em países de língua portuguesa.</p>
             <ul>
                 <li><strong>Espanha:</strong> Mantém alta incidência, concentrando-se fortemente nas províncias do norte, além de comunidades autônomas como Catalunha e Madri.</li>
                 <li><strong>América Latina:</strong> Possui centenas de milhares de representantes, com forte expressão demográfica no México e na região andina.</li>
                 <li><strong>Legado:</strong> Carregar este nome representa carregar séculos de herança cultural, resiliência histórica e forte identidade ancestral.</li>
+            </ul>
+        </div>
+
+
+        <!-- SEPARADOR VISUAL -->
+        <div class="divider-div"></div>
+
+
+        <!-- ==================== DOSSIÊ 2: JESUS ==================== -->
+        <header class="jesus-header">
+            <div class="brasao-container jesus-container">
+                <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="6"/>
+                    <!-- Cruz simbólica interna em tom azul claro/prateado -->
+                    <path d="M90 40 V200 M60 90 H140" stroke="#60a5fa" stroke-width="8" opacity="0.9"/>
+                </svg>
+            </div>
+            <div>
+                <h1>O Sobrenome Jesus</h1>
+                <p>Dossiê Histórico, Religioso, Demográfico e Genealógico Completo</p>
+            </div>
+        </header>
+
+        <div class="nav-tabs jesus-tabs">
+            <button class="tab-btn active" onclick="mudarAba(event, 'origem-jesus', 'jesus-tab')">📍 Origem e Significado</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'historia-jesus', 'jesus-tab')">📜 Contexto Religioso e Histórico</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'gramatica-jesus', 'jesus-tab')">📖 Uso e Morfologia</button>
+            <button class="tab-btn" onclick="mudarAba(event, 'expansao-jesus', 'jesus-tab')">🌍 Dispersão (Brasil e Mundo)</button>
+        </div>
+
+        <div id="origem-jesus" class="section-content jesus-section jesus-tab active">
+            <h2>Origem e Significado Etimológico (Jesus)</h2>
+            <p>O sobrenome <strong>Jesus</strong> pertence à categoria dos <strong>sobrenomes teofóricos</strong> ou de devoção religiosa. Na tradição da Península Ibérica (sobretudo em Portugal e Espanha), nomes sagrados foram adotados como sobrenomes por razões espirituais, de proteção ou em cumprimento a promessas.</p>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Raiz Hebraica</h4>
+                    <p>Deriva do hebraico <em>Yeshua</em> (ou Yehoshua), cujo significado profundo é "Javé é salvação" ou "O Senhor salva".</p>
+                </div>
+                <div class="info-box">
+                    <h4>Tradição Ibérica</h4>
+                    <p>Sua consolidação como sobrenome familiar ganhou força notável a partir dos séculos XV e XVI, fortemente impulsionada pela devoção cristã católica na península.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="historia-jesus" class="section-content jesus-section jesus-tab">
+            <h2>Contexto Histórico e Religioso (Jesus)</h2>
+            <p>Diferente de sobrenomes de origem puramente geográfica ou ocupacional, carregar Jesus como sobrenome possui forte marca cultural ligada à fé cristã e à proteção divina na sociedade ibérica medieval e moderna.</p>
+            <h3>Marcos Históricos:</h3>
+            <ul>
+                <li><strong>Nomes Teofóricos:</strong> Era comum em Portugal que crianças recebessem sobrenomes inspirados em figuras sagradas (como Jesus, Maria, Santos) para invocar bençãos perpétuas sobre a linhagem.</li>
+                <li><strong>Registro Civil Antigo:</strong> Em muitas paróquias portuguesas antigas, famílias sem um sobrenome tradicional herdado optavam por registrar os filhos com nomes sacros agregados, gerando troncos familiares extensos.</li>
+            </ul>
+        </div>
+
+        <div id="gramatica-jesus" class="section-content jesus-section jesus-tab">
+            <h2>Aspectos Gramaticais e Estrutura (Jesus)</h2>
+            <p>Como sobrenome de família, "Jesus" comporta-se como um substantivo próprio fixo, embora preserve sua raiz etimológica originada de um nome próprio histórico.</p>
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Composição de Nomes Compostos</h4>
+                    <p>Frequentemente atua como base para sobrenomes compostos comuns nos países lusófonos, tais como <em>Santos de Jesus</em>, <em>Maria de Jesus</em> ou <em>Silva de Jesus</em>.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Invariabilidade Familiar</h4>
+                    <p>Na estrutura de registro civil, permanece fixo e imutável para identificar os ramos descendentes de um mesmo tronco familiar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="expansao-jesus" class="section-content jesus-section jesus-tab">
+            <h2>Dispersão Geográfica no Brasil e no Mundo (Jesus)</h2>
+            <p>O sobrenome Jesus possui uma presença demográfica colossal em territórios de língua portuguesa, com destaque absoluto no Brasil e em Portugal.</p>
+            <ul>
+                <li><strong>Forte Raiz no Brasil:</strong> É um dos sobrenomes de fundo religioso e de maior incidência demográfica em território brasileiro, presente de Norte a Sul do país.</li>
+                <li><strong>Presença em Portugal:</strong> Amplamente disseminado em várias regiões portuguesas, carregando séculos de registros paroquiais antigos.</li>
+                <li><strong>Legado Cultural:</strong> Representa uma herança de profunda tradição espiritual, fé e ancestralidade popular profundamente enraizada na identidade lusófona.</li>
             </ul>
         </div>
 
@@ -304,13 +409,17 @@
     </div>
 
     <script>
-        function mudarAba(idAba) {
-            const secoes = document.querySelectorAll('.section-content');
+        function mudarAba(event, idAba, grupoClasse) {
+            // Oculta apenas as seções do grupo correspondente (navarro-tab ou jesus-tab)
+            const secoes = document.querySelectorAll('.' + grupoClasse);
             secoes.forEach(sec => sec.classList.remove('active'));
 
-            const botoes = document.querySelectorAll('.tab-btn');
+            // Remove a classe active dos botões do mesmo grupo pai
+            const containerAbas = event.currentTarget.closest('.nav-tabs');
+            const botoes = containerAbas.querySelectorAll('.tab-btn');
             botoes.forEach(btn => btn.classList.remove('active'));
 
+            // Ativa a seção e o botão clicado
             document.getElementById(idAba).classList.add('active');
             event.currentTarget.classList.add('active');
         }
