@@ -43,12 +43,36 @@
             border-radius: 12px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brasao-container {
+            width: 130px;
+            height: 150px;
+            background: #fff;
+            border: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: radial-gradient(circle, #2b2b2b 0%, #111 100%);
+        }
+
+        .brasao-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         header h1 {
             color: var(--accent);
             font-size: 2.8rem;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             letter-spacing: 1px;
         }
 
@@ -173,8 +197,21 @@
 
     <div class="wrapper">
         <header>
-            <h1>🏰 O Sobrenome Navarro</h1>
-            <p>Dossiê Genealógico, Histórico, Etimológico e Heráldico Completo</p>
+            <!-- Brasão Oficial Tradicional da Família Navarro (Representação Heráldica Padrão) -->
+            <div class="brasao-container">
+                <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Fundo do Escudo -->
+                    <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#990000" stroke="#d4af37" stroke-width="6"/>
+                    <!-- Detalhe Heráldico Interno (Cruz ou Faixa em Ouro) -->
+                    <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="8" opacity="0.8"/>
+                    <!-- Coroa Superior Simulada -->
+                    <path d="M80 15 L90 5 L100 12 L110 5 L120 15 Z" fill="#d4af37"/>
+                </svg>
+            </div>
+            <div>
+                <h1>O Sobrenome Navarro</h1>
+                <p>Dossiê Genealógico, Histórico, Etimológico e Heráldico Completo</p>
+            </div>
         </header>
 
         <!-- Menu de Abas -->
@@ -246,7 +283,7 @@
             <ul>
                 <li><strong>Metal Ouro (Amarelo):</strong> Representa a nobreza, a magnanimidade, o esplendor, a sabedoria e a constância.</li>
                 <li><strong>Esmalte Vermelho (Gules):</strong> Simboliza o valor militar, a coragem intrépida, a honra, a vitória e a audácia perante os desafios.</li>
-                <li><strong>Elementos Comuns:</strong> Registros heráldicos legítimos costumam exibir cruzes de gules, castelos medievais fortificados ou faixas heráldicas alusivas às defesas do antigo reino.</li>
+                <li><strong>Elementos Comuns:</strong> Registros heráldicos legítimos costumam exibir faixas defensivas, castelos medievais fortificados ou cruzes heráldicas alusivas às defesas do antigo reino.</li>
             </ul>
         </div>
 
@@ -268,15 +305,12 @@
 
     <script>
         function mudarAba(idAba) {
-            // Oculta todas as seções
             const secoes = document.querySelectorAll('.section-content');
             secoes.forEach(sec => sec.classList.remove('active'));
 
-            // Remove a classe active de todos os botões
             const botoes = document.querySelectorAll('.tab-btn');
             botoes.forEach(btn => btn.classList.remove('active'));
 
-            // Ativa a seção e o botão correspondente
             document.getElementById(idAba).classList.add('active');
             event.currentTarget.classList.add('active');
         }
