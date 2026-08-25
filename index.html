@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enciclopédia do Sobrenome Navarro</title>
+    <style>
+        :root {
+            --primary-color: #8b0000; /* Vermelho Heráldico / Gules */
+            --secondary-color: #d4af37; /* Dourado */
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: var(--secondary-color);
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        .nav-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            border: 2px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background-color: var(--primary-color);
+            border-color: var(--secondary-color);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .content-card.active {
+            display: block;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        ul {
+            line-height: 1.8;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🏰 Família Navarro</h1>
+            <p>Enciclopédia Histórica, Etimológica e Cultural do Sobrenome</p>
+        </header>
+
+        <!-- Menu de Navegação em Abas -->
+        <div class="nav-buttons">
+            <button class="nav-btn active" onclick="mostrarSecao('historia')">📜 História</button>
+            <button class="nav-btn" onclick="mostrarSecao('genero')">📖 Gênero e Gramática</button>
+            <button class="nav-btn" onclick="mostrarSecao('etimologia')">⛰️ Etimologia</button>
+            <button class="nav-btn" onclick="mostrarSecao('heraldica')">🛡️ Heráldica</button>
+            <button class="nav-btn" onclick="mostrarSecao('expansao')">🌍 Expansão</button>
+        </div>
+
+        <!-- Seção 1: História -->
+        <div id="historia" class="content-card active">
+            <h2>História e Origem Geográfica</h2>
+            <ul>
+                <li><strong>Raízes profundas:</strong> O sobrenome Navarro tem origem na antiga Região e Reino de Navarra, localizado ao norte da Espanha, na cordilheira dos Pirenéus, fazendo fronteira com a França.</li>
+                <li><strong>Natureza Toponímica:</strong> Na Idade Média, funcionava como um sobrenome descritivo/toponímico. Era dado às pessoas que saíam da região de Navarra para habitar ou comerciar em outras províncias espanholas, significando literalmente <em>"aquele que veio de Navarra"</em>.</li>
+            </ul>
+        </div>
+
+        <!-- Seção 2: Gênero -->
+        <div id="genero" class="content-card">
+            <h2>Gênero, Gramática e Variações</h2>
+            <ul>
+                <li><strong>Classificação:</strong> Atua tanto como substantivo próprio (sobrenome) quanto como adjetivo pátrio (referente a quem nasce em Navarra).</li>
+                <li><strong>Masculino Singular / Geral:</strong> Utiliza-se a forma principal <strong>Navarro</strong>.</li>
+                <li><strong>Plural:</strong> <strong>Os Navarros</strong>, usado coletivamente para se referir à família ou ao clã.</li>
+                <li><strong>Feminino:</strong> <strong>Navarra</strong>, aplicado tanto à província europeia quanto ao gentílico feminino individual.</li>
+            </ul>
+        </div>
+
+        <!-- Seção 3: Etimologia -->
+        <div id="etimologia" class="content-card">
+            <h2>Significado e Etimologia (Basca)</h2>
+            <ul>
+                <li><strong>Influência do Basco:</strong> A palavra possui raízes profundas no idioma basco (*Euskara*), uma das línguas mais antigas da Europa, anterior à expansão do latim.</li>
+                <li><strong>Significado Base:</strong> Deriva do termo basco <em>"Naba"</em>, que designava uma planície fértil ou vale plano cercado por elevações ou montanhas.</li>
+            </ul>
+        </div>
+
+        <!-- Seção 4: Heráldica -->
+        <div id="heraldica" class="content-card">
+            <h2>Heráldica e Brasão Tradicional</h2>
+            <ul>
+                <li><strong>Cores Principais (Tinctures):</strong>
+                    <ul>
+                        <li><strong>Ouro (Amarelo):</strong> Simboliza nobreza, magnanimidade, esplendor e pureza.</li>
+                        <li><strong>Vermelho (Gules):</strong> Representa valor, coragem inabalável, honra e audácia em combate.</li>
+                    </ul>
+                </li>
+                <li><strong>Elementos Clássicos:</strong> Os registros heráldicos espanhóis associados ao nome frequentemente ostentam faixas defensivas, castelos medievais ou águias imperiais.</li>
+            </ul>
+        </div>
+
+        <!-- Seção 5: Expansão -->
+        <div id="expansao" class="content-card">
+            <h2>Expansão Mundial e no Brasil</h2>
+            <ul>
+                <li><strong>Península Ibérica:</strong> Com a Reconquista Cristã, famílias do reino expandiram-se para Aragão, Valência e Andaluzia.</li>
+                <li><strong>América Latina:</strong> Cruzou o Atlântico durante o período colonial, enraizando-se fortemente em países como México, Colômbia, Argentina e Peru.</li>
+                <li><strong>No Brasil:</strong> Estabeleceu-se por meio de fluxos migratórios ibéricos ao longo dos séculos, integrando-se profundamente à história nacional.</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>✨ "Carregar o sobrenome Navarro é carregar séculos de herança histórica nas veias." ✨</p>
+        </footer>
+    </div>
+
+    <script>
+        function mostrarSecao(idSecao) {
+            // Oculta todos os cards de conteúdo
+            const cards = document.querySelectorAll('.content-card');
+            cards.forEach(card => card.classList.remove('active'));
+
+            // Remove a classe 'active' de todos os botões
+            const botoes = document.querySelectorAll('.nav-btn');
+            botoes.forEach(btn => btn.classList.remove('active'));
+
+            // Mostra o card selecionado e ativa o botão correspondente
+            document.getElementById(idSecao).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
