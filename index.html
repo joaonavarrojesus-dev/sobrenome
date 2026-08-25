@@ -3,210 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enciclopédia do Sobrenome Navarro</title>
+    <title>Dossiê Histórico e Cultural - Sobrenome Navarro</title>
     <style>
         :root {
-            --primary-color: #8b0000; /* Vermelho Heráldico / Gules */
-            --secondary-color: #d4af37; /* Dourado */
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --border-color: #333;
+            --primary: #990000;
+            --primary-dark: #660000;
+            --accent: #d4af37;
+            --bg-main: #0f1115;
+            --bg-card: #1a1d24;
+            --text-main: #f1f1f1;
+            --text-muted: #aaaaaa;
+            --border: #2c313c;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-color);
-            margin: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
             padding: 20px;
-            display: flex;
-            justify-content: center;
         }
 
-        .container {
-            width: 100%;
-            max-width: 900px;
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         header {
             text-align: center;
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 20px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg-card), var(--primary-dark));
+            border: 2px solid var(--accent);
+            border-radius: 12px;
             margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
         header h1 {
-            color: var(--secondary-color);
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 2px;
+            color: var(--accent);
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         header p {
-            color: #aaa;
-            font-size: 1.1rem;
-            margin-top: 10px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
         }
 
-        .nav-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
             margin-bottom: 30px;
         }
 
-        .nav-btn {
-            background-color: var(--card-bg);
-            color: var(--text-color);
-            border: 2px solid var(--border-color);
-            padding: 12px 15px;
-            border-radius: 8px;
+        .tab-btn {
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             transition: all 0.3s ease;
-            text-align: center;
         }
 
-        .nav-btn:hover, .nav-btn.active {
-            background-color: var(--primary-color);
-            border-color: var(--secondary-color);
+        .tab-btn:hover, .tab-btn.active {
+            background-color: var(--primary);
+            border-color: var(--accent);
             color: #fff;
             transform: translateY(-2px);
         }
 
-        .content-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        .section-content {
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            animation: fadeIn 0.4s ease-in-out;
         }
 
-        .content-card.active {
+        .section-content.active {
             display: block;
         }
 
         h2 {
-            color: var(--secondary-color);
-            margin-top: 0;
-            border-bottom: 1px solid var(--border-color);
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h3 {
+            color: var(--text-main);
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: #dcdcdc;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            background: rgba(0,0,0,0.2);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .info-box h4 {
+            color: var(--accent);
+            margin-bottom: 8px;
         }
 
         ul {
-            line-height: 1.8;
-            padding-left: 20px;
+            list-style-type: none;
+            padding-left: 0;
         }
 
         li {
-            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.2rem;
         }
 
         footer {
             text-align: center;
-            margin-top: 40px;
-            font-size: 0.9rem;
-            color: #777;
-            border-top: 1px solid var(--border-color);
-            padding-top: 15px;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
         <header>
-            <h1>🏰 Família Navarro</h1>
-            <p>Enciclopédia Histórica, Etimológica e Cultural do Sobrenome</p>
+            <h1>🏰 O Sobrenome Navarro</h1>
+            <p>Dossiê Genealógico, Histórico, Etimológico e Heráldico Completo</p>
         </header>
 
-        <!-- Menu de Navegação em Abas -->
-        <div class="nav-buttons">
-            <button class="nav-btn active" onclick="mostrarSecao('historia')">📜 História</button>
-            <button class="nav-btn" onclick="mostrarSecao('genero')">📖 Gênero e Gramática</button>
-            <button class="nav-btn" onclick="mostrarSecao('etimologia')">⛰️ Etimologia</button>
-            <button class="nav-btn" onclick="mostrarSecao('heraldica')">🛡️ Heráldica</button>
-            <button class="nav-btn" onclick="mostrarSecao('expansao')">🌍 Expansão</button>
+        <!-- Menu de Abas -->
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="mudarAba('origem')">📍 Origem e Etimologia</button>
+            <button class="tab-btn" onclick="mudarAba('historia')">📜 História e Expansão</button>
+            <button class="tab-btn" onclick="mudarAba('gramatica')">📖 Gramática e Gênero</button>
+            <button class="tab-btn" onclick="mudarAba('heraldica')">🛡️ Heráldica e Brasão</button>
+            <button class="tab-btn" onclick="mudarAba('demografia')">🌍 Dispersão Global</button>
         </div>
 
-        <!-- Seção 1: História -->
-        <div id="historia" class="content-card active">
-            <h2>História e Origem Geográfica</h2>
+        <!-- ABA 1: ORIGEM E ETIMOLOGIA -->
+        <div id="origem" class="section-content active">
+            <h2>Origem Geográfica e Raízes Etimológicas</h2>
+            <p>O sobrenome <strong>Navarro</strong> é classificado tecnicamente como um <strong>sobrenome toponímico</strong>. Isso significa que ele não surgiu de uma profissão ou de um ancestral comum direto, mas sim de uma indicação geográfica: era o nome atribuído aos indivíduos que saíam de sua terra natal para se estabelecer em outras regiões da Península Ibérica.</p>
+            
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>O Reino de Navarra</h4>
+                    <p>Originário da histórica região e antigo Reino de Navarra, situado ao norte da Espanha e sudoeste da França, encravado na cordilheira dos Pirenéus.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Raiz Basca (Euskara)</h4>
+                    <p>A palavra tem profundo enraizamento na língua basca antiga. Deriva de <em>"naba"</em>, que descreve uma planície fértil ou vale plano cercado por montanhas ou elevações.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABA 2: HISTÓRIA E EXPANSÃO -->
+        <div id="historia" class="section-content">
+            <h2>Contexto Histórico e Expansão Geográfica</h2>
+            <p>Durante a Idade Média e o processo de Reconquista Cristã na Península Ibérica, cavaleiros, nobres e plebeus originários de Navarra migraram para apoiar a Coroa em territórios reconquistados como Aragão, Valência e Andaluzia.</p>
+            
+            <h3>Marcos da Expansão:</h3>
             <ul>
-                <li><strong>Raízes profundas:</strong> O sobrenome Navarro tem origem na antiga Região e Reino de Navarra, localizado ao norte da Espanha, na cordilheira dos Pirenéus, fazendo fronteira com a França.</li>
-                <li><strong>Natureza Toponímica:</strong> Na Idade Média, funcionava como um sobrenome descritivo/toponímico. Era dado às pessoas que saíam da região de Navarra para habitar ou comerciar em outras províncias espanholas, significando literalmente <em>"aquele que veio de Navarra"</em>.</li>
+                <li><strong>Período Medieval:</strong> Funcionava como um indicativo claro de procedência ("Fulano, o Navarro"). Com o tempo, fixou-se de vez como sobrenome hereditário.</li>
+                <li><strong>Chegada às Américas:</strong> Durante os séculos de colonização espanhola, portadores do sobrenome cruzaram o Atlântico, estabelecendo raízes sólidas no México, Colômbia, Argentina, Peru e Chile.</li>
+                <li><strong>Presença no Brasil:</strong> O sobrenome integrou-se à história brasileira por meio de correntes imigratórias e ramificações ibéricas ancestrais desde os tempos do Brasil Colônia.</li>
             </ul>
         </div>
 
-        <!-- Seção 2: Gênero -->
-        <div id="genero" class="content-card">
-            <h2>Gênero, Gramática e Variações</h2>
+        <!-- ABA 3: GRAMÁTICA E GÊNERO -->
+        <div id="gramatica" class="section-content">
+            <h2>Aspectos Gramaticais, Gênero e Variações</h2>
+            <p>Na língua portuguesa e espanhola, o sobrenome possui características morfológicas singulares por acumular também a função de adjetivo pátrio (gentílico).</p>
+
+            <div class="info-grid">
+                <div class="info-box">
+                    <h4>Uso como Sobrenome (Família)</h4>
+                    <p>Permanece invariável para designar o clã familiar. Exemplo: <em>"A família Navarro"</em> ou <em>"Os irmãos Navarro"</em>.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Variação de Gênero</h4>
+                    <p>Enquanto <strong>Navarro</strong> atua no masculino singular/geral, o feminino individual ou pátrio correspondente é <strong>Navarra</strong>.</p>
+                </div>
+                <div class="info-box">
+                    <h4>Variantes Internacionais</h4>
+                    <p>Apresenta variações fonéticas ou ortográficas em outras nações, como <em>Navarre</em> (França) ou formas aportuguesadas antigas em cartórios históricos.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABA 4: HERÁLDICA -->
+        <div id="heraldica" class="section-content">
+            <h2>Heráldica e Simbologia do Brasão</h2>
+            <p>Na ciência heráldica tradicional ibérica, as famílias nobres ou fidalgas ligadas ao tronco de Navarra registravam escudos carregados de simbolismos profundos sobre coragem e lealdade.</p>
+            
+            <h3>Atributos Clássicos do Escudo:</h3>
             <ul>
-                <li><strong>Classificação:</strong> Atua tanto como substantivo próprio (sobrenome) quanto como adjetivo pátrio (referente a quem nasce em Navarra).</li>
-                <li><strong>Masculino Singular / Geral:</strong> Utiliza-se a forma principal <strong>Navarro</strong>.</li>
-                <li><strong>Plural:</strong> <strong>Os Navarros</strong>, usado coletivamente para se referir à família ou ao clã.</li>
-                <li><strong>Feminino:</strong> <strong>Navarra</strong>, aplicado tanto à província europeia quanto ao gentílico feminino individual.</li>
+                <li><strong>Metal Ouro (Amarelo):</strong> Representa a nobreza, a magnanimidade, o esplendor, a sabedoria e a constância.</li>
+                <li><strong>Esmalte Vermelho (Gules):</strong> Simboliza o valor militar, a coragem intrépida, a honra, a vitória e a audácia perante os desafios.</li>
+                <li><strong>Elementos Comuns:</strong> Registros heráldicos legítimos costumam exibir cruzes de gules, castelos medievais fortificados ou faixas heráldicas alusivas às defesas do antigo reino.</li>
             </ul>
         </div>
 
-        <!-- Seção 3: Etimologia -->
-        <div id="etimologia" class="content-card">
-            <h2>Significado e Etimologia (Basca)</h2>
+        <!-- ABA 5: DISPERSÃO GLOBAL -->
+        <div id="demografia" class="section-content">
+            <h2>Dispersão e Relevância Global</h2>
+            <p>Hoje, o sobrenome Navarro é amplamente difundido em nível global, ocupando posições de destaque demográfico e cultural tanto no mundo hispânico quanto em países de língua portuguesa.</p>
             <ul>
-                <li><strong>Influência do Basco:</strong> A palavra possui raízes profundas no idioma basco (*Euskara*), uma das línguas mais antigas da Europa, anterior à expansão do latim.</li>
-                <li><strong>Significado Base:</strong> Deriva do termo basco <em>"Naba"</em>, que designava uma planície fértil ou vale plano cercado por elevações ou montanhas.</li>
-            </ul>
-        </div>
-
-        <!-- Seção 4: Heráldica -->
-        <div id="heraldica" class="content-card">
-            <h2>Heráldica e Brasão Tradicional</h2>
-            <ul>
-                <li><strong>Cores Principais (Tinctures):</strong>
-                    <ul>
-                        <li><strong>Ouro (Amarelo):</strong> Simboliza nobreza, magnanimidade, esplendor e pureza.</li>
-                        <li><strong>Vermelho (Gules):</strong> Representa valor, coragem inabalável, honra e audácia em combate.</li>
-                    </ul>
-                </li>
-                <li><strong>Elementos Clássicos:</strong> Os registros heráldicos espanhóis associados ao nome frequentemente ostentam faixas defensivas, castelos medievais ou águias imperiais.</li>
-            </ul>
-        </div>
-
-        <!-- Seção 5: Expansão -->
-        <div id="expansao" class="content-card">
-            <h2>Expansão Mundial e no Brasil</h2>
-            <ul>
-                <li><strong>Península Ibérica:</strong> Com a Reconquista Cristã, famílias do reino expandiram-se para Aragão, Valência e Andaluzia.</li>
-                <li><strong>América Latina:</strong> Cruzou o Atlântico durante o período colonial, enraizando-se fortemente em países como México, Colômbia, Argentina e Peru.</li>
-                <li><strong>No Brasil:</strong> Estabeleceu-se por meio de fluxos migratórios ibéricos ao longo dos séculos, integrando-se profundamente à história nacional.</li>
+                <li><strong>Espanha:</strong> Mantém alta incidência, concentrando-se fortemente nas províncias do norte, além de comunidades autônomas como Catalunha e Madri.</li>
+                <li><strong>América Latina:</strong> Possui centenas de milhares de representantes, com forte expressão demográfica no México e na região andina.</li>
+                <li><strong>Legado:</strong> Carregar este nome representa carregar séculos de herança cultural, resiliência histórica e forte identidade ancestral.</li>
             </ul>
         </div>
 
         <footer>
-            <p>✨ "Carregar o sobrenome Navarro é carregar séculos de herança histórica nas veias." ✨</p>
+            <p>✨ "A história de um nome é a herança viva deixada pelos que vieram antes de nós." ✨</p>
         </footer>
     </div>
 
     <script>
-        function mostrarSecao(idSecao) {
-            // Oculta todos os cards de conteúdo
-            const cards = document.querySelectorAll('.content-card');
-            cards.forEach(card => card.classList.remove('active'));
+        function mudarAba(idAba) {
+            // Oculta todas as seções
+            const secoes = document.querySelectorAll('.section-content');
+            secoes.forEach(sec => sec.classList.remove('active'));
 
-            // Remove a classe 'active' de todos os botões
-            const botoes = document.querySelectorAll('.nav-btn');
+            // Remove a classe active de todos os botões
+            const botoes = document.querySelectorAll('.tab-btn');
             botoes.forEach(btn => btn.classList.remove('active'));
 
-            // Mostra o card selecionado e ativa o botão correspondente
-            document.getElementById(idSecao).classList.add('active');
+            // Ativa a seção e o botão correspondente
+            document.getElementById(idAba).classList.add('active');
             event.currentTarget.classList.add('active');
         }
     </script>
