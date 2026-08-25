@@ -57,7 +57,6 @@
             position: relative;
         }
 
-        /* ORNAMENTO DE COROA NO TOPO DO HEADER */
         .header-crown {
             width: 50px;
             height: 30px;
@@ -77,8 +76,8 @@
 
         .brasao-content {
             display: none;
-            width: 130px;
-            height: 150px;
+            width: 150px;
+            height: 170px;
             background: radial-gradient(circle, #2b2b2b 0%, #111 100%);
             border: 3px solid var(--accent);
             border-radius: 8px;
@@ -179,7 +178,6 @@
             display: block;
         }
 
-        /* ILUSTRAÇÕES DECORATIVAS NAS SEÇÕES */
         .section-illustration {
             display: flex;
             justify-content: center;
@@ -320,7 +318,6 @@
             top: -1px;
         }
 
-        /* ORNAMENTOS DE DIVISÓRIA */
         .ornamented-divider {
             display: flex;
             align-items: center;
@@ -367,25 +364,25 @@
 
         <!-- ==================== DOSSIÊ 1: NAVARRO ==================== -->
         <header>
-            <!-- Desenho de Coroa Nobre -->
             <svg class="header-crown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 16L3 5L8.5 10L12 4L15.5 10L21 5L19 16H5M19 19A1 1 0 0 1 18 20H6A1 1 0 0 1 5 19V18H19V19Z"/>
             </svg>
 
-            <!-- Container com Abas para o Brasão Navarro -->
+            <!-- Container com Abas para o Brasão Navarro (Com Desenho de Animal: Leão Heráldico) -->
             <div class="brasao-view-container">
                 <div id="brasao-navarro-svg" class="brasao-content active">
                     <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                         <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#990000" stroke="#d4af37" stroke-width="6"/>
-                        <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="8" opacity="0.8"/>
-                        <path d="M80 15 L90 5 L100 12 L110 5 L120 15 Z" fill="#d4af37"/>
-                        <!-- Pequeno escudo interno decorativo -->
-                        <path d="M85 90 C85 70 115 70 115 90 C115 110 85 110 85 90 Z" fill="#d4af37" opacity="0.9"/>
+                        <path d="M90 10 V230 M10 90 H190" stroke="#d4af37" stroke-width="6" opacity="0.6"/>
+                        <!-- Desenho vetorial do Leão Heráldico de Navarro -->
+                        <g transform="translate(65, 75) scale(1.3)" fill="#d4af37">
+                            <path d="M22,10C22,10 21,7 18,7C15,7 14,9 14,9C14,9 12,7 9,7C6,7 5,10 5,10C3,11 2,13 2,15C2,18 4,20 7,20C10,20 12,17 12,17C12,17 14,20 17,20C20,20 22,18 22,15C22,13 21,11 22,10Z"/>
+                        </g>
                     </svg>
                 </div>
                 <div id="brasao-navarro-detalhes" class="brasao-content" style="flex-direction: column; text-align: center; font-size: 0.755rem; padding: 10px; color: var(--text-muted);">
-                    <strong style="color: var(--accent);">Escudo Pleno</strong>
-                    <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: center;">Gules com reticulado de Ouro e coroa superior.</p>
+                    <strong style="color: var(--accent);">Escudo com Leão</strong>
+                    <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: center;">Gules com leão rampante em Ouro simbolizando força e realeza.</p>
                 </div>
                 
                 <div class="brasao-tabs">
@@ -409,14 +406,14 @@
         </div>
 
         <div id="origem" class="section-content navarro-tab active">
-            <!-- Desenho temático: Mapa / Montanha -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M14,6L10,2L4,8V20H20V8L14,6M12,4.88L14.12,7H9.88L12,4.88M18,18H6V10H18V18Z"/></svg>
             </div>
             <h2>Origem Geográfica e Raízes Etimológicas</h2>
             <p>O sobrenome <strong>Navarro</strong> é classificado tecnicamente como um <strong>sobrenome toponímico</strong>. Isso significa que ele não surgiu de uma profissão ou de um ancestral comum direto, mas sim de uma indicação geográfica: era o nome atribuído aos indivíduos que saíam de sua terra natal para se estabelecer em outras regiões da Península Ibérica.</p>
             
-            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Paisagem montanhosa dos Pirenéus" class="content-image">
+            <!-- Imagem de animal representativo da região montanhosa (Cavalo Ibérico dos Pirenéus) -->
+            <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=1000&q=80" alt="Cavalo correndo livre em paisagem montanhosa" class="content-image">
 
             <div class="info-grid">
                 <div class="info-box">
@@ -431,7 +428,6 @@
         </div>
 
         <div id="historia" class="section-content navarro-tab">
-            <!-- Desenho temático: Castelo Medieval -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M19,20H22V4H20V2H17V4H14V2H11V4H8V2H5V4H3V20H6V22H19V20M8,6H10V8H8V6M14,6H16V8H14V6M5,6H7V8H5V6M19,18H5V10H19V18Z"/></svg>
             </div>
@@ -449,7 +445,6 @@
         </div>
 
         <div id="gramatica" class="section-content navarro-tab">
-            <!-- Desenho temático: Livro Aberto -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.5,5 3,6.5 3,8.5V19C3,20.1 3.9,21 5,21C5.5,21 6,20.8 6.4,20.5C7.3,19.9 8.5,19.5 10,19.5C12.3,19.5 14.5,20.4 16.5,21.5C17.1,21.8 17.8,22 18.5,22C19.6,22 20.5,21.1 20.5,20V19.2C18.8,18.4 16.8,18 14.5,18C12.1,18 10,18.5 8,19.5V7.5C9.5,6.6 11.5,6 13.5,6C15,6 16.5,6.3 17.8,6.8L19,5.7C17.4,5.2 15.6,5 13.5,5C10.7,5 8.3,5.5 6.5,5Z"/></svg>
             </div>
@@ -472,25 +467,24 @@
         </div>
 
         <div id="heraldica" class="section-content navarro-tab">
-            <!-- Desenho temático: Escudo Heráldico -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M12,2L4,5V11.09C4,16.14 7.41,20.85 12,22C16.59,20.85 20,16.14 20,11.09V5L12,2M12,11.94H18C17.5,15.83 15.1,19.14 12,20.19V11.94H6V6.3L12,4.1V11.94Z"/></svg>
             </div>
             <h2>Heráldica e Simbologia do Brasão</h2>
             <p>Na ciência heráldica tradicional ibérica, as famílias nobres ou fidalgas ligadas ao tronco de Navarra registravam escudos carregados de simbolismos profundos sobre coragem e lealdade.</p>
             
-            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=80" alt="Arte clássica e heráldica medieval" class="content-image">
+            <!-- Imagem de animal heráldico majestoso (Águia Real / Símbolo de Nobreza) -->
+            <img src="https://images.unsplash.com/photo-1611689102402-5e63c76762e2?auto=format&fit=crop&w=1000&q=80" alt="Águia majestosa representando a heráldica nobre" class="content-image">
 
             <h3>Atributos Clássicos do Escudo:</h3>
             <ul>
                 <li><strong>Metal Ouro (Amarelo):</strong> Representa a nobreza, a magnanimidade, o esplendor, a sabedoria e a constância.</li>
                 <li><strong>Esmalte Vermelho (Gules):</strong> Simboliza o valor militar, a coragem intrépida, a honra, a vitória e a audácia perante os desafios.</li>
-                <li><strong>Elementos Comuns:</strong> Registros heráldicos legítimos costumam exibir faixas defensivas, castelos medievais fortificados ou cruzes heráldicas alusivas às defesas do antigo reino.</li>
+                <li><strong>Elementos Comuns:</strong> Registros heráldicos legítimos costumam exibir faixas defensivas, castelos medievais fortificados ou animais heráldicos de prestígio.</li>
             </ul>
         </div>
 
         <div id="demografia" class="section-content navarro-tab">
-            <!-- Desenho temático: Globo Terrestre -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.2L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
             </div>
@@ -512,24 +506,25 @@
 
         <!-- ==================== DOSSIÊ 2: JESUS ==================== -->
         <header class="jesus-header">
-            <!-- Desenho de Coroa Sacra -->
             <svg class="header-crown" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"/>
             </svg>
 
-            <!-- Container com Abas para o Brasão Jesus -->
+            <!-- Container com Abas para o Brasão Jesus (Com Desenho do Cordeiro Sagrado / Pomba da Paz) -->
             <div class="brasao-view-container">
                 <div id="brasao-jesus-svg" class="brasao-content jesus-brasao-content active">
                     <svg viewBox="0 0 200 240" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
                         <path d="M100 10 C150 10 190 30 190 90 C190 160 140 200 100 230 C60 200 10 160 10 90 C10 30 50 10 100 10 Z" fill="#1e3a8a" stroke="#60a5fa" stroke-width="6"/>
-                        <path d="M90 40 V200 M60 90 H140" stroke="#60a5fa" stroke-width="8" opacity="0.9"/>
-                        <!-- Detalhe da Coroa de Luz ou Estrela central -->
-                        <circle cx="100" cy="90" r="12" fill="#60a5fa" opacity="0.7"/>
+                        <path d="M90 40 V200 M60 90 H140" stroke="#60a5fa" stroke-width="6" opacity="0.7"/>
+                        <!-- Desenho Vetorial de Pomba / Espírito Divino no Brasão -->
+                        <g transform="translate(68, 85) scale(1.4)" fill="#60a5fa">
+                            <path d="M12,2C10.5,3.5 7.5,7.5 5,10C2.5,12.5 1,14 1,16C1,18 2.5,19 4,18.5C5.5,18 7,16.5 8.5,15C9.5,16.5 11,18 13,19C15,20 17,20 18.5,18.5C20,17 21.5,13.5 22,11C20.5,12 18,13 16,12.5C14,12 13,10.5 12,9C11,7.5 12,4 12,2Z"/>
+                        </g>
                     </svg>
                 </div>
                 <div id="brasao-jesus-detalhes" class="brasao-content jesus-brasao-content" style="flex-direction: column; text-align: center; font-size: 0.755rem; padding: 10px; color: var(--text-muted);">
                     <strong style="color: var(--jesus-accent);">Selo Teofórico</strong>
-                    <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: center;">Azul profundo cruzado por emblema sacral em prata/luz.</p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.7rem; text-align: center;">Azul profundo cruzado por emblema sacral com pomba de luz.</p>
                 </div>
 
                 <div class="brasao-tabs jesus-brasao-tabs">
@@ -552,14 +547,14 @@
         </div>
 
         <div id="origem-jesus" class="section-content jesus-section jesus-tab active">
-            <!-- Desenho temático: Cruz / Sacro -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M10,2H14V7H21V11H14V22H10V11H3V7H10V2Z"/></svg>
             </div>
             <h2>Origem e Significado Etimológico</h2>
             <p>O sobrenome <strong>Jesus</strong> pertence à categoria dos <strong>sobrenomes teofóricos</strong> ou de devoção religiosa. Na tradição da Península Ibérica (sobretudo em Portugal e Espanha), nomes sagrados foram adotados como sobrenomes por razões espirituais, de proteção ou em cumprimento a promessas.</p>
             
-            <img src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=1000&q=80" alt="Arquitetura sacra e igrejas históricas" class="content-image">
+            <!-- Imagem animal de simbolismo bíblico clássico (Cordeiro / Ovelha nas colinas pastoris) -->
+            <img src="https://images.unsplash.com/photo-1484557077804-d5c633a218b7?auto=format&fit=crop&w=1000&q=80" alt="Ovelha em pastagem verdejante remetendo à tradição pastoral" class="content-image">
 
             <div class="info-grid">
                 <div class="info-box">
@@ -574,7 +569,6 @@
         </div>
 
         <div id="historia-jesus" class="section-content jesus-section jesus-tab">
-            <!-- Desenho temático: Pergaminho / Manuscrito Antigo -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.89,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19M7,7H17V9H7V7M7,11H17V13H7V11M7,15H14V17H7V15Z"/></svg>
             </div>
@@ -591,7 +585,6 @@
         </div>
 
         <div id="gramatica-jesus" class="section-content jesus-section jesus-tab">
-            <!-- Desenho temático: Pena de Escrever -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M6,14L10,18L4,22L6,14M21.5,4.5C21.5,4.5 21.5,5.2 21,5.7L18.5,8.2L15.8,5.5L18.3,3C18.8,2.5 19.5,2.5 19.5,2.5L21.5,4.5M14.8,6.5L3,18.3V21H5.7L17.5,9.2L14.8,6.5Z"/></svg>
             </div>
@@ -610,7 +603,6 @@
         </div>
 
         <div id="expansao-jesus" class="section-content jesus-section jesus-tab">
-            <!-- Desenho temático: Pessoas / Comunidade -->
             <div class="section-illustration">
                 <svg viewBox="0 0 24 24"><path d="M16 11C17.66 11 19 9.66 19 8C19 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11M8 11C9.66 11 11 9.66 11 8C11 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11M8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13M16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/></svg>
             </div>
@@ -629,7 +621,6 @@
     </div>
 
     <script>
-        // Função para alternar as abas dos conteúdos principais
         function mudarAba(event, idAba, grupoClasse) {
             const secoes = document.querySelectorAll('.' + grupoClasse);
             secoes.forEach(sec => sec.classList.remove('active'));
@@ -642,7 +633,6 @@
             event.currentTarget.classList.add('active');
         }
 
-        // Função específica para alternar os visores do brasão
         function mudarBrasao(event, idConteudoBrasao, grupoBrasaoClasse) {
             const containerPai = event.currentTarget.closest('.brasao-view-container');
             
