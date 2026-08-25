@@ -165,6 +165,21 @@
             display: block;
         }
 
+        /* ESTILO PARA AS IMAGENS DO DOSSIÊ */
+        .content-image {
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 2px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .jesus-section .content-image {
+            border-color: var(--jesus-accent);
+        }
+
         h2 {
             color: var(--accent);
             font-size: 1.8rem;
@@ -318,6 +333,9 @@
         <div id="origem" class="section-content navarro-tab active">
             <h2>Origem Geográfica e Raízes Etimológicas (Navarro)</h2>
             <p>O sobrenome <strong>Navarro</strong> é classificado tecnicamente como um <strong>sobrenome toponímico</strong>. Isso significa que ele não surgiu de uma profissão ou de um ancestral comum direto, mas sim de uma indicação geográfica: era o nome atribuído aos indivíduos que saíam de sua terra natal para se estabelecer em outras regiões da Península Ibérica.</p>
+            
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80" alt="Paisagem montanhosa dos Pirenéus" class="content-image">
+
             <div class="info-grid">
                 <div class="info-box">
                     <h4>O Reino de Navarra</h4>
@@ -333,6 +351,9 @@
         <div id="historia" class="section-content navarro-tab">
             <h2>Contexto Histórico e Expansão Geográfica (Navarro)</h2>
             <p>Durante a Idade Média e o processo de Reconquista Cristã na Península Ibérica, cavaleiros, nobres e plebeus originários de Navarra migraram para apoiar a Coroa em territórios reconquistados como Aragão, Valência e Andaluzia.</p>
+            
+            <img src="https://images.unsplash.com/photo-1599839575945-a9e5af0c3fae?auto=format&fit=crop&w=1000&q=80" alt="Castelo e arquitetura medieval" class="content-image">
+
             <h3>Marcos da Expansão:</h3>
             <ul>
                 <li><strong>Período Medieval:</strong> Funcionava como um indicativo claro de procedência ("Fulano, o Navarro"). Com o tempo, fixou-se de vez como sobrenome hereditário.</li>
@@ -423,6 +444,9 @@
         <div id="origem-jesus" class="section-content jesus-section jesus-tab active">
             <h2>Origem e Significado Etimológico (Jesus)</h2>
             <p>O sobrenome <strong>Jesus</strong> pertence à categoria dos <strong>sobrenomes teofóricos</strong> ou de devoção religiosa. Na tradição da Península Ibérica (sobretudo em Portugal e Espanha), nomes sagrados foram adotados como sobrenomes por razões espirituais, de proteção ou em cumprimento a promessas.</p>
+            
+            <img src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=1000&q=80" alt="Arquitetura sacra e igrejas históricas" class="content-image">
+
             <div class="info-grid">
                 <div class="info-box">
                     <h4>Raiz Hebraica</h4>
@@ -491,7 +515,6 @@
 
         // Função específica para alternar os visores do brasão
         function mudarBrasao(event, idConteudoBrasao, grupoBrasaoClasse) {
-            // Como os containers de brasão estão dentro do header, buscamos no elemento pai comum mais próximo
             const containerPai = event.currentTarget.closest('.brasao-view-container');
             
             const conteudos = containerPai.querySelectorAll('.brasao-content');
